@@ -8,22 +8,22 @@ class User(AbstractUser):
     mobile = models.CharField(max_length=11)
     email_active = models.BooleanField(default=False)
     # 默认收货地址
-    default_address = models.ForeignKey('users.Address', null=True, related_name='users')
+    default_address = models.ForeignKey('users.Address', null=True, related_name='users', on_delete=models.PROTECT)
 
 
 class Address(BaseModel):
     # 关联用户
-    user = models.ForeignKey(User, related_name='adresses')
+    user = models.ForeignKey(User, related_name='adresses',on_delete=models.PROTECT)
     # 标题
     title = models.CharField(max_length=10, null=True)
     # 收件人
     receiver = models.CharField(max_length=10)
     # 省
-    province = models.ForeignKey(Area, related_name='provinces')
+    province = models.ForeignKey(Area, related_name='provinces',on_delete=models.PROTECT)
     # 市
-    city = models.ForeignKey(Area, related_name='citys')
+    city = models.ForeignKey(Area, related_name='citys',on_delete=models.PROTECT)
     # 区县
-    district = models.ForeignKey(Area, related_name='districts')
+    district = models.ForeignKey(Area, related_name='districts',on_delete=models.PROTECT)
     # 详细地址
     detail_address = models.CharField(max_length=100)
     # 手机号
