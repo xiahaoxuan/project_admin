@@ -1,11 +1,13 @@
-from fdfs_client.client import Fdfs_client
+from fdfs_client.client import Fdfs_client, get_tracker_conf
+from django.conf import settings
+import os
 
 if __name__ == '__main__':
-    # 创建连接对象
-    client = Fdfs_client('client.conf')
-    # 上传文件
-    ret = client.upload_by_filename('/home/python/Desktop/1.jpg')
-    # 响应值
+    # tracker_path = get_tracker_conf('')
+
+    tracker_path = get_tracker_conf(conf_path=settings.FASTDFS_PATH)
+    client = Fdfs_client(tracker_path)
+    ret = client.upload_by_filename('/Users/zhishi/Desktop/picture/2029233.jpg')
     print(ret)
 
 '''

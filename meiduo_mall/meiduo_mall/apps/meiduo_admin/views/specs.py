@@ -10,7 +10,7 @@ class SpecsView(ModelViewSet):
     商品规格的增删改查
     """
     # 指定查询集
-    queryset = SPUSpecification.objects.all()
+    queryset = SPUSpecification.objects.all().order_by("spu_id")
     # 指定序列化器
     serializer_class = specs.SpecsSerializers
 

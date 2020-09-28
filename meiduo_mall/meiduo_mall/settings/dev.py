@@ -310,6 +310,8 @@ EMAIL_VERIFY_URL = 'http://www.meiduo.site:8000/emails/verification/'
 
 # fdfs的访问域名
 FDFS_URL = 'http://192.168.0.107:8888/'
+#
+FASTDFS_PATH = os.path.join(BASE_DIR, 'utils/fdfs/client.conf')
 # 指定文件存储类型
 DEFAULT_FILE_STORAGE = 'meiduo_mall.utils.fdfs.storage.FdfsStorage'
 

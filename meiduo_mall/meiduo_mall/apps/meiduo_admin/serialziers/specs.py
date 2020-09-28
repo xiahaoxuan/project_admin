@@ -25,3 +25,5 @@ class SPUSerializer(serializers.ModelSerializer):
         fields = ('id', 'name')
 
 
+
+
