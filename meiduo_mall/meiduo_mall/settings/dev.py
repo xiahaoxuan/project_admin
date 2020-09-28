@@ -13,6 +13,7 @@ import datetime
 import os  # 操作系统ubuntu模块
 import sys  # python模块
 
+
 # sys.path#导入包的路径
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -44,7 +45,7 @@ ALLOWED_HOSTS = [
 DEV_URL = '192.168.0.107'  # 192.168.0.107
 
 # Application definition
-
+# djcelery.setup_loader()
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -70,6 +71,8 @@ INSTALLED_APPS = [
 
     # 'haystack',
     'django_crontab',  # 定时任务
+
+
 ]
 
 MIDDLEWARE = [

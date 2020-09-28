@@ -35,7 +35,7 @@ urlpatterns = [
 router = DefaultRouter()
 router.register(r'goods/specs', specs.SpecsView)
 # ------------------图片表路由----------------------
-router.register(r'goods/images', images.ImagesView)
+router.register(r'skus/images', images.ImagesView)
 urlpatterns += router.urls
 
 
