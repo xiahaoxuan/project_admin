@@ -33,7 +33,7 @@ class ImageSerializers(serializers.ModelSerializer):
         sku_id = request.data.get('sku')[0]
         # 保存图片
         img = SKUImage.objects.create(sku_id=sku_id, image=image_url)
-        get_detail_html.delay(img.sku_id)
+        # get_detail_html.delay(img.sku_id)
         return img
 
     def update(self, instance, validated_data):
@@ -51,7 +51,7 @@ class ImageSerializers(serializers.ModelSerializer):
         # 更新图片
         instance.image = image_url
         instance.save()
-        get_detail_html.delay(sku_id)
+        # get_detail_html.delay(sku_id)
         # img = SKUImage.objects.update(sku_id=sku_id, image=image_url)
         return instance
 

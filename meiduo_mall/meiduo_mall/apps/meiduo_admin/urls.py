@@ -2,7 +2,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import include
 from rest_framework_jwt.views import obtain_jwt_token
-from meiduo_admin.views import statistical, users, specs, images
+from meiduo_admin.views import statistical, users, specs, images, orders, permission
 from rest_framework.routers import DefaultRouter
 
 urlpatterns = [
@@ -30,12 +30,19 @@ urlpatterns = [
     # url(r'^goods/specs/(?P<pk>\d+)/$', specs.SaveSpecsView.as_view({'get': "retrieve", "put": "update"})),
     url(r'^goods/simple/$', specs.SpecsView.as_view({'get': "simple"})),
     url(r'^skus/simple/$', images.ImagesView.as_view({'get': "simple"})),
+    url(r'^permission/content_types/$', permission.PermissionView.as_view({'get': "content_types"})),
+
 ]
-# ------------------规格表路由----------------------
 router = DefaultRouter()
+# -------------------规格表路由-----------------------
 router.register(r'goods/specs', specs.SpecsView)
-# ------------------图片表路由----------------------
+# -------------------图片表路由-----------------------
 router.register(r'skus/images', images.ImagesView)
+# -------------------订单管理-------------------------
+router.register(r'orders', orders.OrderView)
+# -------------------权限管理-------------------------
+router.register(r'permission/perms', permission.PermissionView)
+
 urlpatterns += router.urls
 
 
